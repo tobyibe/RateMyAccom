@@ -1,43 +1,39 @@
-import React from 'react'
-import { FaInstagram } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import { RiMenuFill } from "react-icons/ri";
-import { useState } from 'react';
-import { FiHome } from "react-icons/fi";
-import { IoMdClose } from "react-icons/io";
+import React, {useState} from 'react'
+import {AiOutlineMenu, AiOutlineClose} from "react-icons/ai";
+ 
 const NavBar = () => {
-  const [nav, setNav] = useState(false) //Nav state used for moving the navbar on mobile devices when menu button is clicked
-
-  const handleNav = () => {
-    setNav(!nav);
-  }
-  
+    const [nav, setNav] = useState(true);
+    const handleNav = () => {
+        setNav(!nav)
+    }
   return (
-    <nav className='flex justify-end sm:justify-between p-5 bg-[#344e41]'>
-      <div className='hidden sm:flex space-x-5'>
-        <FaInstagram size="2rem"/>
-        <FaXTwitter size="2rem"/>  
-        <FiHome size="2rem"/>            
+    <div className='w-full text-white flex justify-between items-center p-5 border-b border-b-gray-700 '>
+      <h1 className=' text-3xl font-bold text-green-300'>Rate My Accom</h1>
+      <ul className='hidden sm:flex uppercase'>
+          <li className='m-4 font-bold hover:border-b-2 hover:mb-2 cursor-pointer'>Log In</li>
+          <li className='m-4 font-bold hover:border-b-2 hover:mb-2  cursor-pointer'>Sign Up</li>
+          <li className='m-4 font-bold hover:border-b-2 hover:mb-2  cursor-pointer'>Contact Us</li>
+          <li className='m-4 font-bold hover:border-b-2 hover:mb-2  cursor-pointer'>X/Twitter</li>
+          <li className='m-4 font-bold hover:border-b-2 hover:mb-2  cursor-pointer'>Instagram</li>
+      </ul>
+
+      <div onClick={handleNav} className=' cursor-pointer sm:hidden'> 
+          {!nav ? <AiOutlineClose size="2rem" /> : <AiOutlineMenu size="2rem"/>}
+          
       </div>
-      <div className='sm:flex space-x-5 hidden'>
-        <button className=' text-xl font-semibold border-black hover:border-b-2'>Log In</button>
-        <button className=' text-xl font-semibold border-black hover:border-b-2'>Sign In</button>
-      </div>  
-       
-      <div className={!nav?"flex flex-col space-y-5 fixed left-[-100%] sm:hidden transition-all bg-[#dad7cd] rounded-lg" : 'fixed flex flex-col space-y-5 left-5 px-5 sm:hidden transition-all bg-[#dad7cd] rounded-lg'}>
-        <ul className=' rounded-lg '>
-            <li className='p-4 border-b border-b-black transition-all cursor-pointer'>Sign In</li>
-            <li className='p-4 border-b border-black transition-all cursor-pointer'>Log In</li>
-            <li className='p-4 border-b border-b-black transition-all cursor-pointer'>Home</li>
-            <li className='p-4 border-b border-black transition-all cursor-pointer'>Twitter/X</li>
-            <li className='p-4  cursor-pointer'>TikTok</li>
-        </ul>
+      <div className={!nav? "fixed top-0 left-0 border-r-2 border-r-gray-700 w-[60%] h-full bg-[#232D3F] transition-all duration-500" : " fixed left-[-100%]  top-0 border-r-2 border-r-gray-700 w-[60%] h-full bg-[#232D3F] duration-500 transition-all"}>
+          <h1 className='w-full text-xl font-bold text-green-300 p-4'>Rate My Accom</h1>
+          <ul className=' rounded-lg uppercase'>
+              <li className='p-4 border-b border-b-gray-700 hover:bg-gray-900 transition-all cursor-pointer'>Log In</li>
+              <li className='p-4 border-b border-b-gray-700 hover:bg-gray-900 transition-all cursor-pointer'>Sign In</li>
+              <li className='p-4 border-b border-b-gray-700 hover:bg-gray-900 transition-all cursor-pointer'>Contact Us</li>
+              <li className='p-4 border-b border-b-gray-700 hover:bg-gray-900 transition-all cursor-pointer'>X/Twitter</li>
+              <li className='p-4 border-b border-b-gray-700 hover:bg-gray-900 transition-all cursor-pointer'>Instagram</li>
+          </ul>
       </div>
-      <div className='sm:hidden ' onClick={handleNav}>
-        {!nav? <RiMenuFill size="2rem" /> : <IoMdClose size="2rem" />}   
-      </div>  
-    </nav>
+        
+    </div>
   )
 }
 
-export default NavBar;   
+export default NavBar
