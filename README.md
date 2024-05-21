@@ -8,4 +8,4 @@ Importantly, make sure your styling responsively mobile first, so make sure you 
 please conserve the color and sizing schemes (if possible, only use sizes and colors that have already been used)
 If you have any questions whatsoever or suggestions then msg me
 
-
+Also use tailwind @apply stylings for readability and ease of changing 
